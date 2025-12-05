@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Translator & Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector(".navbar");
+            const isVisible = menu.style.display === "flex";
+            menu.style.display = isVisible ? "none" : "flex";
+        }
+    </script>
+</head>
+
+<body>
+
+<header>
+    <h1>Smart Dictionary | Translator | Summarizer</h1>
+
+    <span class="menu-btn" onclick="toggleMenu()">☰</span>
+
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('translate') }}" class="active">Translate</a>
+        <a href="{{ url_for('support') }}">Support</a>
+        <a href="{{ url_for('developer') }}">Developer</a>
+        <a href="{{ url_for('about') }}">About</a>
+    </nav>
+</header>
+
+
+<div class="translate-container">
+    <div class="full-card">
+
+        <h2 class="title">Enter Your Text</h2>
+
+        <form method="POST">
+            <textarea name="input_text" placeholder="Type or paste your text here..." required>{{ original_text }}</textarea>
+
+            <label class="language-label">Select Target Language</label>
+
+            <select name="language" required>
+                <option {% if selected_language=='English' %}selected{% endif %}>English</option>
+                <option {% if selected_language=='Hindi' %}selected{% endif %}>Hindi</option>
+                <option {% if selected_language=='Marathi' %}selected{% endif %}>Marathi</option>
+                <option {% if selected_language=='Kannada' %}selected{% endif %}>Kannada</option>
+            </select>
+
+            <button class="btn-primary" type="submit">
+                Translate & Summarize
+            </button>
+        </form>
+
+        <!-- SHOW TRANSLATED TEXT ONLY IF IT EXISTS -->
+        {% if translated %}
+        <div class="output-block">
+            <h3>Translated Text</h3>
+            <p>{{ translated }}</p>
+        </div>
+        {% endif %}
+
+        <!-- SHOW SUMMARIZED TEXT ONLY IF IT EXISTS -->
+        {% if summarized %}
+        <div class="output-block">
+            <h3>Summarized Text</h3>
+            <p>{{ summarized }}</p>
+        </div>
+        {% endif %}
+
+        <!-- SHOW AUDIO BUTTON ONLY IF SUMMARY EXISTS -->
+        {% if summarized %}
+        <a class="btn-primary audio-btn" href="{{ url_for('audio') }}" target="_blank">
+            🎧 Play Audio
+        </a>
+        {% endif %}
+
+    </div>
+</div>
+<footer class="footer">
+  <a href="/templates/developer.html">Developer</a>
+  <p>📧 girishasutar223gmail.com</p>
+  <p>© 2025 AI Text Tools — All Rights Reserved</p>
+</footer>
+</body>
+</html>

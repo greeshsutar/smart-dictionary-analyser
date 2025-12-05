@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Text Tools</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; 
+    background: linear-gradient(to right, #6dd5fa, #2980b9);
+
+}
+
+
+  header {
+    background: linear-gradient(90deg, #172023, #101b29);
+    padding: 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .navbar {
+    display: flex;
+    gap: 25px;
+  }
+
+  .navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s;
+  }
+
+  .navbar a:hover {
+    opacity: 0.7;
+  }
+
+  .menu-btn {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .navbar {
+      position: absolute;
+      top: 80px;
+      right: 0;
+      background: #033363;
+      width: 100%;
+      flex-direction: column;
+      text-align: center;
+      display: none;
+      padding: 15px 0;
+      animation: slideDown .4s ease;
+    }
+
+    .menu-btn {
+      display: block;
+    }
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero {
+    flex: 1;              /* hero takes remaining space */
+    background: linear-gradient(to right, #6dd5fa, #2980b9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+  .hero-content h1 {
+    font-size: 42px;
+  }
+
+  .sub-heading {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .hero-desc {
+    max-width: 600px;
+    font-size: 18px;
+  }
+
+  .btn-primary {
+    background: black;
+    color: white;
+    padding: 14px 26px;
+    border-radius: 8px;
+    font-size: 20px;
+    text-decoration: none;
+    margin-top: 25px;
+  }
+
+
+
+.footer {
+    background: linear-gradient(90deg, #172023, #101b29);
+    color: white;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 16px;
+
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    gap: 30px;                   
+    flex-wrap: wrap;              
+}
+
+.footer p {
+    margin: 0;
+    white-space: nowrap;          
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+    .footer {
+        font-size: 14px;
+        gap: 15px;         
+        padding: 12px 10px;
+    }
+}
+footer a {
+    text-decoration: none;
+    color: aliceblue;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: 0.3s ease-in-out;
+}
+
+footer a:hover {
+    background-color: #6dd5fa;  
+    color: #ebebeb !important;  
+    transform: translateY(-2px); 
+}
+
+
+
+</style>
+
+<script>
+  function toggleMenu() {
+    const menu = document.querySelector(".navbar");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+  }
+</script>
+
+</head>
+
+<body>
+
+<header>
+  <h1>Smart Dictionary | Translator | Summarizer</h1>
+
+  <span class="menu-btn" onclick="toggleMenu()">☰</span>
+
+  <nav class="navbar">
+    <a href="/">Home</a>
+    <a href="/translate">Translate</a>
+    <a href="/support">Support</a>
+     <a href="/developer" class="active">Developer</a>
+    <a href="/about">About</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Transform Your Text Instantly</h1>
+
+    <h2 class="sub-heading">
+      AI Text-to-Speech • Translation • Summarization
+    </h2>
+
+    <p class="hero-desc">
+      Convert text into natural speech, translate across multiple languages,
+      and generate smart AI summaries — all in one place.
+    </p>
+
+    <a href="/translate" class="btn-primary">🚀 Start Translating</a>
+  </div>
+</section>
+
+<footer class="footer">
+ <a href="/developer" class="active">Developer</a>
+  <p>📧 girishasutar223gmail.com</p>
+  <p>© 2025 AI Text Tools — All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About - AI Text Tools</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(to right, #6dd5fa, #2980b9);
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    /* HEADER */
+    header {
+        background: linear-gradient(90deg, #172023, #101b29);
+        padding: 20px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 20px;
+    }
+
+    .navbar a {
+        text-decoration: none;
+        color: white !important;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 8px 14px;
+        border-radius: 6px;
+        transition: 0.3s ease;
+    }
+
+    .navbar a:hover {
+        background-color: #6dd5fa;
+        color: #0a1a2f !important;
+        transform: translateY(-2px);
+    }
+
+    .menu-btn {
+        display: none;
+        font-size: 28px;
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        .navbar {
+            position: absolute;
+            top: 75px;
+            right: 0;
+            width: 100%;
+            background: #162334;
+            flex-direction: column;
+            text-align: center;
+            display: none;
+            padding: 20px 0;
+        }
+        .menu-btn { display: block; }
+    }
+
+    /* ABOUT CONTENT */
+    .about-wrapper {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 30px;
+    }
+
+    .about-box {
+        width: 600px;
+        max-width: 95%;
+        background: linear-gradient(90deg, #172023, #101b29);
+        padding: 30px;
+        border-radius: 20px;
+        color: white;
+        text-align: left;
+        box-sizing: border-box;
+        line-height: 1.6;
+    }
+
+    .about-box h2 {
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 28px;
+    }
+
+    .section-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        text-decoration: underline;
+    }
+
+    .team-list {
+        margin-left: 20px;
+    }
+
+    /* FOOTER */
+    footer {
+        background: linear-gradient(90deg, #172023, #101b29);
+        color: white;
+        padding: 12px 20px;
+        text-align: center;
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    footer a {
+        text-decoration: none;
+        color: aliceblue;
+        padding: 6px 10px;
+        border-radius: 6px;
+        transition: 0.3s ease-in-out;
+    }
+
+    footer a:hover {
+        background-color: #6dd5fa;
+        color: #0a1a2f !important;
+        transform: translateY(-2px);
+    }
+
+</style>
+
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector(".navbar");
+        menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+</script>
+</head>
+
+<body>
+
+<header>
+    <h1>Smart Dictionary | Translator | Summarizer</h1>
+    <span class="menu-btn" onclick="toggleMenu()">☰</span>
+
+    <nav class="navbar">
+        <a href="/">Home</a>
+        <a href="/translate">Translate</a>
+        <a href="/support">Support</a>
+        <a href="/developer">Developer</a>
+        <a href="/about" class="active">About</a>
+    </nav>
+</header>
+
+<div class="about-wrapper">
+    <section class="about-box">
+        <h2>About Our Project</h2>
+
+        <p>
+            AI Text Tools is an advanced platform designed to make communication easier,
+            smarter, and more accessible. It brings together Artificial Intelligence features like
+            translation, summarization, and text-to-speech, creating a powerful tool for students,
+            teachers, researchers, and everyday users.
+        </p>
+
+        <p>
+            Our goal is simple: to break language barriers, help users understand content faster,
+            and make high-level AI technology available for everyone in a clean and easy interface.
+        </p>
+
+        <div class="section-title">Project Features</div>
+        <ul class="team-list">
+            <li>Smart multi-language translation</li>
+            <li>AI-powered text summarization</li>
+            <li>Text-to-Speech audio output</li>
+            <li>Clean and responsive UI</li>
+            <li>Fast and accurate results</li>
+        </ul>
+
+        <div class="section-title">Our Vision</div>
+        <p>
+            To enhance learning, communication, and productivity using intelligent AI tools that
+            save time and bring clarity to information.
+        </p>
+
+        <div class="section-title">Project Team</div>
+        <ul class="team-list">
+            <li><b>Greesh Sutar</b></li>
+            <li>Mangesh Desai</li>
+            <li>Anjali.K</li>
+            <li>Ashutosh.U</li>
+        </ul>
+
+        <div class="section-title">Guide / Mentor</div>
+        <p><b>Basavaraj Chougala</b></p>
+
+        <div class="section-title">Our Mission</div>
+        <p>
+            To continuously improve AI Text Tools with more languages, better summarization,
+            enhanced audio clarity, and advanced features that support every user's needs.
+        </p>
+    </section>
+</div>
+
+<footer>
+    <a href="/developer">Developer</a>
+    <p>📧 girishasutar223gmail.com</p>
+    <p>© 2025 AI Text Tools — All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

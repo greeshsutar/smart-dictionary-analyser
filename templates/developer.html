@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Developer – AI Text Tools</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+<style>
+/* Developer page styling */
+.dev-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.dev-card {
+    background: linear-gradient(90deg, #172023, #101b29);
+    padding: 40px;
+    width: 480px;
+    max-width: 90%;
+    border-radius: 18px;
+    color: white;
+    text-align: center;
+}
+
+.dev-card h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.dev-sub {
+    font-size: 18px;
+    margin-bottom: 18px;
+    opacity: 0.85;
+}
+.navbar a {
+    text-decoration: none;
+    color: white !important;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 6px;   /* Rounded hover shape */
+    transition: 0.3s ease;
+}
+
+/* HOVER BACKGROUND EFFECT */
+.navbar a:hover {
+    background-color: #6dd5fa;    /* light blue highlight */
+    color: #0a1a2f !important;    /* dark text to match */
+    transform: translateY(-2px);  /* slight lift */
+}
+
+.section-title {
+    margin-top: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.dev-text {
+    text-align: left;
+    margin-top: 8px;
+    line-height: 1.6;
+    font-size: 16px;
+}
+footer a {
+    text-decoration: none;
+    color: aliceblue;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: 0.3s ease-in-out;
+}
+
+footer a:hover {
+    background-color: #6dd5fa;  
+    color: #0a1a2f !important;  
+    transform: translateY(-2px); 
+}
+
+strong { color: #6bcaff; }
+</style>
+
+<script>
+function toggleMenu() {
+    const menu = document.querySelector(".navbar");
+    menu.classList.toggle("show");
+}
+</script>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <h1>Smart Dictionary | Translator | Summarizer</h1>
+
+    <span class="menu-btn" onclick="toggleMenu()">☰</span>
+
+    <nav class="navbar">
+        <a href="/">Home</a>
+        <a href="/translate">Translate</a>
+        <a href="/support">Support</a>
+        <a href="/developer" class="active">Developer</a>
+        <a href="/about">About</a>
+    </nav>
+</header>
+
+<!-- PAGE BODY -->
+<div class="dev-wrapper">
+    <div class="dev-card">
+
+        <h1>Developer Information</h1>
+        <p class="dev-sub">Meet the creators behind the AI Text Tools</p>
+
+        <!-- MAIN DEVELOPER -->
+        <div class="section-title">👨‍💻Developer</div>
+        <p class="dev-text">
+            <strong>Greesh Sutar</strong><br>
+            Final-year engineering student passionate about AI, automation,
+            NLP technologies and full-stack development.<br><br>
+            Responsible for:
+        </p>
+
+        <ul class="dev-text">
+            <li>Core backend development using Flask</li>
+            <li>UI/UX design and implementation</li>
+            <li>Integration of translation, summarization & TTS models</li>
+            <li>Error handling, testing & deployment setup</li>
+        </ul>
+
+        <!-- TEAM CONTRIBUTIONS -->
+        <div class="section-title">🤝 Team Contributions</div>
+
+        <p class="dev-text">
+            Grateful to teammates who supported the project with inputs and collaboration:
+        </p>
+
+        <ul class="dev-text">
+            <li><strong>Greesh</strong> – Assisted with initial planning and reference material collection</li>
+            <li><strong>Mangesh</strong> – Helped in UI testing and shared improvement suggestions</li>
+            <li><strong>Anjali</strong> – Prepared sample text datasets for translation testing</li>
+            <li><strong>Ashutosh</strong> – Supported documentation and reviewed output accuracy</li>
+        </ul>
+
+        <!-- GUIDE -->
+        <div class="section-title">🎓 Project Guide</div>
+        <p class="dev-text">
+            Special thanks to <strong>Prof. Basavaraj Chougala</strong><br>
+            for continuous guidance, encouragement and reviewing the project.
+        </p>
+
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+ <a href="/developer" class="active">Developer</a>
+  <p>📧 girishasutar223gmail.com</p>
+  <p>© 2025 AI Text Tools — All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
