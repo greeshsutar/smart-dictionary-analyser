@@ -1,5 +1,5 @@
 /* ==========================================
-   TRANSLATE PAGE ONLY
+   GLOBAL / PAGE
 ========================================== */
 
 body {
@@ -13,7 +13,10 @@ body {
     overflow-y: auto;
 }
 
-/* HEADER */
+/* ==========================================
+   HEADER
+========================================== */
+
 header {
     background: linear-gradient(90deg, #172023, #101b29);
     padding: 20px;
@@ -36,18 +39,14 @@ header h1 {
 
 .navbar a {
     text-decoration: none;
-    color: white !important;   /* FORCE WHITE COLOR */
+    color: white !important;
     font-size: 18px;
     font-weight: 500;
     transition: 0.3s ease;
 }
 
-
 .navbar a:hover,
 .navbar a.active {
-    opacity: 0.7;
-}
-.navbar a:hover {
     opacity: 0.7;
     transform: translateY(-2px);
 }
@@ -70,119 +69,166 @@ header h1 {
         padding: 20px 0;
         text-align: center;
     }
-    .menu-btn { display: block; }
+    .menu-btn {
+        display: block;
+    }
 }
 
 /* ==========================================
-   TRANSLATION PAGE CARD
+   TRANSLATION CARD
 ========================================== */
 
 .translate-container {
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: flex-start;
     padding: 40px 15px;
 }
 
 .full-card {
-    background: linear-gradient(90deg, #172023, #101b29);
+    background: linear-gradient(180deg, #0e1a25, #050b11);
     width: 500px;
     max-width: 90%;
-    padding: 30px;
-    border-radius: 20px;
+    padding: 35px;
+    border-radius: 22px;
     color: white;
     text-align: center;
     box-sizing: border-box;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* Title */
+/* ==========================================
+   TITLE
+========================================== */
+
 .title {
     font-size: 26px;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
-/* Text Input */
+/* ==========================================
+   TEXTAREA
+========================================== */
+
 textarea {
     width: 100%;
-    height: 140px;
-    border-radius: 10px;
-    padding: 12px;
+    height: 150px;
+    border-radius: 12px;
+    padding: 14px;
     border: none;
     outline: none;
     resize: none;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
     box-sizing: border-box;
     font-size: 15px;
 }
 
-/* Label */
+/* ==========================================
+   LABELS
+========================================== */
+
 .language-label {
     display: block;
     text-align: left;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
+    font-size: 15px;
 }
 
-/* Dropdown */
+/* ==========================================
+   FILE INPUT (ALIGNED PERFECTLY)
+========================================== */
+
+.file-input {
+    width: 100%;
+    height: 48px;
+    padding: 10px 12px;
+    background: white;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+/* Chrome / Edge button */
+.file-input::-webkit-file-upload-button {
+    height: 100%;
+    border: none;
+    background: #2980b9;
+    color: white;
+    padding: 0 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.file-input::-webkit-file-upload-button:hover {
+    background: #1f6fa8;
+}
+
+/* ==========================================
+   DROPDOWN
+========================================== */
+
 select {
     width: 100%;
-    padding: 12px;
-    border-radius: 10px;
+    height: 48px;
+    padding: 0 14px;
+    border-radius: 12px;
     font-size: 16px;
     border: none;
     outline: none;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
     box-sizing: border-box;
 }
 
 /* ==========================================
-   BUTTONS (FIXED PERFECTLY)
+   BUTTONS
 ========================================== */
 
 .btn-primary {
-    width: 100%;   /* FULL WIDTH */
+    width: 100%;
     padding: 14px;
-    border-radius: 8px;
+    border-radius: 10px;
     background: linear-gradient(to right, #6dd5fa, #2980b9);
     border: none;
     color: white;
     font-size: 18px;
     cursor: pointer;
     margin-top: 10px;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .btn-primary:hover {
-    background: #e50f0f;
+    background: #1f6fa8;
 }
 
 /* AUDIO BUTTON */
 .audio-btn {
-    width: 93%;
-    margin-top: 20px;
+    width: 94%;
+    margin-top: 22px;
     padding: 14px;
     display: block;
     text-align: center;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 /* ==========================================
-   RESULT BLOCK (Hidden until translation)
+   OUTPUT BLOCKS
 ========================================== */
 
 .output-block {
-    background: #ffffff22;
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid #ffffff33;
-    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    margin-top: 22px;
     text-align: left;
-}
-
-
-.output-block.visible {
-    display: block;
 }
 
 .output-block h3 {
@@ -193,6 +239,7 @@ select {
     margin: 0;
     color: #f1f1f1;
     font-size: 16px;
+    line-height: 1.5;
 }
 
 /* ==========================================
@@ -215,6 +262,7 @@ select {
 .footer p {
     margin: 0;
 }
+
 footer a {
     text-decoration: none;
     color: aliceblue;
@@ -224,7 +272,7 @@ footer a {
 }
 
 footer a:hover {
-    background-color: #6dd5fa;  
-    color: #0a1a2f !important;  
-    transform: translateY(-2px); 
+    background-color: #6dd5fa;
+    color: #0a1a2f !important;
+    transform: translateY(-2px);
 }

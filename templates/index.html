@@ -8,8 +8,7 @@
     <script>
         function toggleMenu() {
             const menu = document.querySelector(".navbar");
-            const isVisible = menu.style.display === "flex";
-            menu.style.display = isVisible ? "none" : "flex";
+            menu.style.display = menu.style.display === "flex" ? "none" : "flex";
         }
     </script>
 </head>
@@ -30,14 +29,20 @@
     </nav>
 </header>
 
-
 <div class="translate-container">
     <div class="full-card">
 
-        <h2 class="title">Enter Your Text</h2>
+        <h2 class="title">Enter Text or Upload File</h2>
 
-        <form method="POST">
-            <textarea name="input_text" placeholder="Type or paste your text here..." required>{{ original_text }}</textarea>
+        <!-- IMPORTANT: multipart/form-data -->
+        <form method="POST" enctype="multipart/form-data">
+
+            <!-- TEXT INPUT -->
+            <textarea name="input_text" placeholder="Type or paste your text here...">{{ original_text }}</textarea>
+
+            <!-- FILE INPUT -->
+            <label class="language-label">Or Upload File (TXT / PDF)</label>
+            <input type="file" name="file" accept=".txt,.pdf" class="file-input">
 
             <label class="language-label">Select Target Language</label>
 
@@ -53,7 +58,6 @@
             </button>
         </form>
 
-        <!-- SHOW TRANSLATED TEXT ONLY IF IT EXISTS -->
         {% if translated %}
         <div class="output-block">
             <h3>Translated Text</h3>
@@ -61,7 +65,6 @@
         </div>
         {% endif %}
 
-        <!-- SHOW SUMMARIZED TEXT ONLY IF IT EXISTS -->
         {% if summarized %}
         <div class="output-block">
             <h3>Summarized Text</h3>
@@ -69,7 +72,6 @@
         </div>
         {% endif %}
 
-        <!-- SHOW AUDIO BUTTON ONLY IF SUMMARY EXISTS -->
         {% if summarized %}
         <a class="btn-primary audio-btn" href="{{ url_for('audio') }}" target="_blank">
             🎧 Play Audio
@@ -78,10 +80,12 @@
 
     </div>
 </div>
+
 <footer class="footer">
-  <a href="/templates/developer.html">Developer</a>
-  <p>📧 girishasutar223gmail.com</p>
-  <p>© 2025 AI Text Tools — All Rights Reserved</p>
+    <a href="{{ url_for('developer') }}">Developer</a>
+    <p>📧 girishasutar223gmail.com</p>
+    <p>© 2025 AI Text Tools — All Rights Reserved</p>
 </footer>
+
 </body>
 </html>
