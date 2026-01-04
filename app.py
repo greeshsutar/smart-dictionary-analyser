@@ -145,5 +145,15 @@ def developer():
     return render_template("developer.html")
 
 
+<<<<<<< HEAD
+=======
+# -----------------------------------------------------------
+# RUN APP
+# -----------------------------------------------------------
+import os
+
+>>>>>>> ac6458bac8abc6337e62b1bc0e7e38cb68c66562
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
+
