@@ -1,6 +1,5 @@
 flask
-transformers
-torch
+gunicorn
 deep-translator
 gTTS
-gunicorn
+PyPDF2

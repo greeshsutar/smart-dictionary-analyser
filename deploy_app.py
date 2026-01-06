@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, send_file
 import os
 from deep_translator import GoogleTranslator
-from transformers import pipeline
 from gtts import gTTS
 from werkzeug.utils import secure_filename
 import PyPDF2
@@ -20,9 +19,6 @@ audio_path = os.path.join(OUTPUT_FOLDER, "output.mp3")
 # -------------------- CONFIG --------------------
 ALLOWED_EXTENSIONS = {"txt", "pdf"}
 
-# -------------------- MODEL --------------------
-summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
-
 # -------------------- HELPERS --------------------
 def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -38,7 +34,9 @@ def extract_text_from_file(filepath):
         with open(filepath, "rb") as f:
             reader = PyPDF2.PdfReader(f)
             for page in reader.pages:
-                text += page.extract_text()
+                page_text = page.extract_text()
+                if page_text:
+                    text += page_text
         return text
 
     return ""
@@ -88,17 +86,13 @@ def translate():
                 source="auto", target=target_code
             ).translate(original_text)
 
-            # -------- SUMMARIZATION (ENGLISH) --------
+            # -------- CLOUD-SAFE SUMMARY --------
             english_text = GoogleTranslator(
                 source="auto", target="en"
             ).translate(original_text)
 
-            summary_eng = summarizer(
-                english_text,
-                max_length=130,
-                min_length=25,
-                do_sample=False
-            )[0]["summary_text"]
+            # Deployment optimization (full AI model used in local version)
+            summary_eng = english_text[:300]
 
             summarized = GoogleTranslator(
                 source="en", target=target_code
@@ -136,7 +130,6 @@ def support():
 
 @app.route("/submit-feedback", methods=["POST"])
 def submit_feedback():
-    print("Feedback received")
     return render_template("support.html", success=True)
 
 
@@ -145,14 +138,7 @@ def developer():
     return render_template("developer.html")
 
 
-
-
-# -----------------------------------------------------------
-# RUN APP
-# -----------------------------------------------------------
-import os
-
+# -------------------- RUN APP --------------------
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
-
